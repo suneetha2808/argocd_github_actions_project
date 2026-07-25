@@ -1,6 +1,8 @@
 name: CI-CD Pipeline with ArgoCD
 
 on:
+permissions:
+  contents: write
   push:
     branches:
       - main
