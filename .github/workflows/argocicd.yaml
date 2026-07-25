@@ -1,8 +1,6 @@
 name: CI-CD Pipeline with ArgoCD
 
 on:
-permissions:
-  contents: write
   push:
     branches:
       - main
@@ -18,7 +16,10 @@ jobs:
     steps:
       # Checkout
       - name: Checkout Code
-        uses: actions/checkout@v4
+  uses: actions/checkout@v4
+  with:
+    token: ${{ secrets.ARGOCD_TOKEN }}
+    fetch-depth: 0
 
       # # Java setup
       # - name: Set up JDK 17
